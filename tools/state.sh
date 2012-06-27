@@ -111,5 +111,5 @@ addStateFile() {
 
 # --- Remove a file from the state 
 remStateFile() {
-
+  true 
 }
