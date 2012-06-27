@@ -9,6 +9,13 @@
 #          used in a production environment. 
 # ---------------------------------------------------------------------------
 
+# --- Fetch repo
+fetchRepo() {
+  
+  git clone -b $git_src_branch $git_repo $project_dir 
+
+}
+
 # --- switch to the specified branch 
 switchBranch() {
 
