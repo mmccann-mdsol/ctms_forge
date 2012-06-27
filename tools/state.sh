@@ -8,9 +8,45 @@
 #          used in a production environment. 
 # ---------------------------------------------------------------------------
 
-# --- load env to existing state 
+# --- loadState -------------------------------------------
+#     Loads a previously saved state back into the environment 
 loadState() {
-   true; 
+  
+  if [[ "$1" == "" ]] ; then 
+
+    echo "you must specify a state name"
+
+  fi
+
+  local state_dir=$forge/track/$project_name/states/$1
+
+  if [[ ! -d $state_dir ]] ; then 
+
+    echo "State $1 does not exist." 
+    return 
+
+  fi 
+
+  if [[ -f $state_dir/db.sql && "$2" != "-nodb" ]] ; then 
+    
+    echo "resetting dsatabase." 
+    $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name < $state_dir/db.sql 
+
+  fi 
+
+  if [[ -f $forge/track/$project_name/statefiles.txt && "$2" != "-nofiles" ]] ; then 
+  
+    while read line ; do 
+
+      echo "resetting $line"
+      
+      mkdir -p $(dirname $forge/$line) 
+      cp  $state_dir/$line $forge/$line 
+
+    done < "$forge/track/$project_name/statefiles.txt" 
+
+  fi 
+
 }
 
 # --- save current state 
@@ -22,13 +58,14 @@ saveState() {
 
   fi
 
-  if [ -d $forge/track/$project_name/states/$1 ] ; then 
+  local state_dir=$forge/track/$project_name/states/$1
+  if [ -d $state_dir ] ; then 
   
     read -p "State already exists - do you want to overwrite?" -n 1 -r 
 
-    if [[ $REPLY =~ ^[Yy]$ ]] 
+    if [[ $REPLY =~ ^[Yy]$ ]] ; then 
 
-      rm -fR $forge/track/$project_name/states/$1
+      rm -fR $state_dir
 
     else
 
@@ -38,11 +75,24 @@ saveState() {
 
   fi 
 
-  mkdir -p $forge/track/$project_name/states/$1 ] 
+  mkdir -p $state_dir 
 
   if [ "$2" != "-nodb" ] ; then 
 
-    dumpDb $forge/track/$project_name/states/$1/db.sql 
+    dumpDb $state_dir/db.sql 
+
+  fi 
+
+  if [ -f $forge/track/$project_name/statefiles.txt ] ; then 
+  
+    while read line ; do 
+
+      echo "resetting $line"
+      
+      mkdir -p $(dirname $state_dir/$line) 
+      cp  $forge/$line $state_dir/$line  
+
+    done < "$forge/track/$project_name/statefiles.txt" 
 
   fi 
 
@@ -50,10 +100,16 @@ saveState() {
 
 # --- Add a file to the list of those to save the state of 
 addStateFile() {
-   true; 
+   
+  if [ "$1" == "" ] ; then 
+    echo "You must specify a file." 
+  fi 
+
+  echo "$1" > $forge/track/$project_name/statefiles.txt 
+ 
 }
 
 # --- Remove a file from the state 
 remStateFile() {
-   true; 
+
 }
