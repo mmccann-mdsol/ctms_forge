@@ -51,7 +51,7 @@ dumpDb() {
       return 
    fi 
  
-   $dump_cmd -u$ctms_db_user -p$ctms_dm_pass $ctms_db_name > $1 
+   $dump_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name > $1 
 
 } 
 
