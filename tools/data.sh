@@ -38,3 +38,18 @@ killOrphans() {
    
 }
 
+# --- Set a password for a user 
+setUserPass() {
+
+  if [ "$1" == "" ] ; then 
+    echo "You must specify a user"
+  fi 
+
+  if [ "$2" == "" ] ; then 
+    echo "You must specify a password" 
+  fi 
+
+  $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -e "update resource_def set user_pwd=upper(convert(sha('$2'), char)) where user_id='$1';" 
+ 
+}
+
