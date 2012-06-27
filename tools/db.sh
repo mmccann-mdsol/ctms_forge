@@ -11,15 +11,7 @@
 # --- create the database set in the environment --- 
 createDatabase() {
 
-  # --- Ensure we have the environment set appropriately 
-  checkEnv errMsg DB 
-  if [ "$errMsg" != "" ] ; then 
-    echo $errMsg 
-    return
-  fi 
-  
-  echo 'Creating Database with settings:' 
-  printEnv DB 
+  echo 'Creating Database $ctms_db_name:' 
   
   $mysql_cmd -uroot -p$mysql_root_pass -e "create database $ctms_db_name"; 
   $mysql_cmd -uroot -p$mysql_root_pass -e "grant ALL on ${ctms_db_name}.* to '$ctms_db_user' identified by '$ctms_db_pass'" 
@@ -28,17 +20,8 @@ createDatabase() {
 
 # --- drop a database 
 dropDatabase() {
-
-  # --- Ensure we have the environment set appropriately 
-  checkEnv errMsg DB 
-  if [ "$errMsg" != "" ] ; then 
-    echo $errMsg 
-    return
-  fi 
-  
-  echo 'Dropping Database with settings:' 
-  printEnv DB 
-
+ 
+  echo "Dropping Database $ctms_db_name:"
   $mysql_cmd -uroot -p$mysql_root_pass -e "drop database $ctms_db_name"; 
 
 }
