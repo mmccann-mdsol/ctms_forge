@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------------------
 
 # --- Tomcat settings 
-CATALINA_BASE=$forge/ctms_tc_base; export CATALINA_BASE 
+CATALINA_BASE=$forge/tcbase; export CATALINA_BASE 
 ctms_doc_base=$project_dir/app
 
 # --- Mysql settings 
