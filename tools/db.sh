@@ -35,12 +35,25 @@ loadSchema() {
   
 }
 
+# --- Load the seeddata file 
 loadSeedData() {
 
   echo 'Loading seed data...' 
   $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name < $seed_data_file 
   echo 'done.'
 }
+
+# --- dump the database to the file specified
+dumpDb() { 
+
+   if [ "$1" == "" ] ; then 
+      echo "You must specify the destination file" 
+      return 
+   fi 
+ 
+   $dump_cmd -u$ctms_db_user -p$ctms_dm_pass $ctms_db_name > $1 
+
+} 
 
 
 

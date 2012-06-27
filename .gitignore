@@ -1,5 +1,5 @@
-# Don't look at log file
-tcbase/logs/*
+# Ignore the catalina.out 
+tcbase/logs/catalina.out
 
 # Don't look at local config file 
 tcbase/conf/Catalina/localhost/ROOT.xml

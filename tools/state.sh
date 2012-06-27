@@ -15,7 +15,37 @@ loadState() {
 
 # --- save current state 
 saveState() {
-   true; 
+   
+  if [ "$1" == "" ] ; then 
+
+    echo "you must specify a stateName"
+
+  fi
+
+  if [ -d $forge/track/$project_name/states/$1 ] ; then 
+  
+    read -p "State already exists - do you want to overwrite?" -n 1 -r 
+
+    if [[ $REPLY =~ ^[Yy]$ ]] 
+
+      rm -fR $forge/track/$project_name/states/$1
+
+    else
+
+      return 
+
+    fi 
+
+  fi 
+
+  mkdir -p $forge/track/$project_name/states/$1 ] 
+
+  if [ "$2" != "-nodb" ] ; then 
+
+    dumpDb $forge/track/$project_name/states/$1/db.sql 
+
+  fi 
+
 }
 
 # --- Add a file to the list of those to save the state of 
