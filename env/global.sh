@@ -1,27 +1,12 @@
 # ---------------------------------------------------------------------------
-# ctms.sh 
+# global.sh 
 # loads environment variables for working on project ctms. 
 # ---------------------------------------------------------------------------
 
-# --- General settings 
-project_dir=$forge/ctms/ 
-ctms_log_dir=$project_dir/logs/
-
-# --- Database settings 
-ctms_db_name=ctms
-ctms_db_user=ctms
-ctms_db_pass=ctms 
-
-schema_file=$project_dir/DBSchema/DDL/cforce-schema.mysql.sql 
-seed_data_file=$project_dir/DBSchema/Source/seed_data.sql 
-
 # --- Tomcat settings 
-CATALINA_HOME=/usr/share/tomcat7/
-CATALINA_BASE=$forge/tcbase 
-
-# --- Document base 
+CATALINA_BASE=$forge/ctms_tc_base; export CATALINA_BASE 
 ctms_doc_base=$project_dir/app
 
-# --- mysql 
+# --- Mysql settings 
 mysql_cmd=/usr/bin/mysql 
 mysql_root_pass=root 
