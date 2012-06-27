@@ -16,5 +16,6 @@ schema_file=$project_dir/DBSchema/DDL/cforce-schema.mysql.sql
 seed_data_file=$project_dir/DBSchema/Source/seed_data.sql 
 
 # --- Tomcat settings 
-CATALINA_BASE=$forge/ctms_tc_base; export CATALINA_BASE 
+CATALINA_HOME=/usr/share/tomcat7/
+CATALINA_BASE=$forge/ctms_tc_base
 ctms_doc_base=$project_dir/app
