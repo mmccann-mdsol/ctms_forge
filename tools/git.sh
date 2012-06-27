@@ -9,26 +9,17 @@
 #          used in a production environment. 
 # ---------------------------------------------------------------------------
 
-# --- Fetch repo
+# --- Fetch repo and rename if local branch name set 
 fetchRepo() {
   
-  git clone -b $git_src_branch $git_repo $project_dir 
+   git clone -b $git_src_branch $git_repo $project_dir 
+   
+   if [ "$git_lcl_branch" != "" ] ; then 
+  
+      git branch -m $git_src_branch $git_lvl_branch 
 
-}
-
-# --- switch to the specified branch 
-switchBranch() {
-
-   true  
-   ## TO-DO 
-
-}
-
-# --- Synchronise with source branch 
-syncBranch() {
-
-   true 
-   ## TO-DO 
+  fi 
    
 }
+
 

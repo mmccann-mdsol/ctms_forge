@@ -29,13 +29,6 @@ dropDatabase() {
 # --- Load the database schema 
 loadSchema() { 
 
-  # --- Ensure we have the environment set appropriately 
-  checkEnv errMsg DB 
-  if [ "$errMsg" != "" ] ; then 
-    echo $errMsg 
-    return
-  fi 
-  
   echo -n 'Loading schema...' 
   $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name < $schema_file 
   echo "done." 
@@ -43,13 +36,6 @@ loadSchema() {
 }
 
 loadSeedData() {
-
-  # --- Ensure we have the environment set appropriately 
-  checkEnv errMsg DB 
-  if [ "$errMsg" != "" ] ; then 
-    echo $errMsg 
-    return
-  fi 
 
   echo 'Loading seed data...' 
   $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name < $seed_data_file 
