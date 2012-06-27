@@ -9,4 +9,5 @@ ctms_doc_base=$project_dir/app
 
 # --- Mysql settings 
 mysql_cmd=/usr/bin/mysql 
+dump_cmd=/usr/bin/mysqldump 
 mysql_root_pass=root 
