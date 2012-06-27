@@ -21,3 +21,7 @@ CATALINA_BASE=$forge/tcbase
 
 # --- Document base 
 ctms_doc_base=$project_dir/app
+
+# --- mysql 
+mysql_cmd=/usr/bin/mysql 
+mysql_root_pass=root 
