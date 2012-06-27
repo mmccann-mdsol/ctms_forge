@@ -8,11 +8,6 @@
 #          used in a production environment. 
 # ---------------------------------------------------------------------------
 
-# --- Add a new State 
-addState() {
-   true; 
-}
-
 # --- load env to existing state 
 loadState() {
    true; 
