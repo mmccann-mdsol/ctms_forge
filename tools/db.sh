@@ -10,15 +10,15 @@
 
 # --- start mysqld
 startDatabase() {
-	echo "Starting MySQL daemon"
-	$mysqld_cmd &> /dev/null &
-	mysqld_pid=$!
+    echo "Starting MySQL daemon"
+    $mysqld_cmd &> /dev/null &
+    mysqld_pid=$!
 }
 
 # --- stop mysqld
 stopDatabase() {
-	echo "Stopping MySQL daemon"
-	kill $mysqld_pid
+    echo "Stopping MySQL daemon"
+    kill $mysqld_pid
 }
 
 # --- create the database set in the environment ---
