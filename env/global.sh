@@ -4,6 +4,7 @@
 # ---------------------------------------------------------------------------
 
 # --- Tomcat settings 
+CATALINA_HOME=/usr/share/tomcat7; export CATALINA_HOME 
 CATALINA_BASE=$forge/tcbase; export CATALINA_BASE 
 ctms_doc_base=$project_dir/app
 
