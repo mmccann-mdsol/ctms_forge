@@ -59,7 +59,7 @@ loadSeedData() {
 # --- dump the database to the file specified
 dumpDb() {
 
-  if [ "$1" == "" ] ; then
+  if [ -z "$1" ] ; then
     echo "You must specify the destination file"
     return
   fi

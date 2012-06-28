@@ -26,7 +26,7 @@ for tool in $forge/tools/*.sh ; do
 done
 
 # If an environment is specified, load it.
-if [ "$1" != "" ] ; then
+if [ -n "$1" ] ; then
 
   project_name="$1"
 

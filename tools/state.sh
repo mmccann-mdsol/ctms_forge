@@ -12,7 +12,7 @@
 #     Loads a previously saved state back into the environment
 loadState() {
 
-  if [[ "$1" == "" ]] ; then
+  if [ -z "$1" ] ; then
 
     echo "you must specify a state name"
 
@@ -52,7 +52,7 @@ loadState() {
 # --- save current state
 saveState() {
 
-  if [ "$1" == "" ] ; then
+  if [ -z "$1" ] ; then
 
     echo "you must specify a stateName"
 
@@ -101,7 +101,7 @@ saveState() {
 # --- Add a file to the list of those to save the state of
 addStateFile() {
 
-  if [ "$1" == "" ] ; then
+  if [ -z "$1" ] ; then
     echo "You must specify a file."
   fi
 

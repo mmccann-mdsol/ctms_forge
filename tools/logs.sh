@@ -11,7 +11,7 @@
 # --- view a specified log
 viewLog() {
 
-  if [ "$1" == "" ] ; then
+  if [ -z "$1" ] ; then
      echo "no log specified";
      return
   fi
@@ -29,14 +29,14 @@ viewLog() {
 #     otherwise it will search all log files.
 searchLog() {
 
-  if [ "$1" == "" ] ; then
+  if [ -z "$1" ] ; then
     echo "No search string specified"
     return
   fi
 
   tgt=$2
 
-  if [ "$tgt" == ""  ] ; then
+  if [ -z "$tgt" ] ; then
      tgt=$ctms_log_dir*
   else
     tgt=$ctms_log_dir/ctms_${tgt}.log

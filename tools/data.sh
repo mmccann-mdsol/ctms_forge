@@ -13,7 +13,7 @@
 # --- Clears all data associated with a study
 clearStudy() {
 
-  if [ "$1" == "" ] ; then
+  if [ -z "$1" ] ; then
     echo "No study specified."
     return
   fi
@@ -41,11 +41,11 @@ killOrphans() {
 # --- Set a password for a user
 setUserPass() {
 
-  if [ "$1" == "" ] ; then
+  if [ -z "$1" ] ; then
     echo "You must specify a user"
   fi
 
-  if [ "$2" == "" ] ; then
+  if [ -z "$2" ] ; then
     echo "You must specify a password"
   fi
 
