@@ -15,8 +15,9 @@ fetchRepo() {
    git clone -b $git_src_branch $git_repo $project_dir 
    
    if [ "$git_lcl_branch" != "" ] ; then 
-  
-      git branch -m $git_src_branch $git_lvl_branch 
+      
+      cd $project_dir 
+      git branch -m $git_src_branch $git_lcl_branch 
 
   fi 
    
