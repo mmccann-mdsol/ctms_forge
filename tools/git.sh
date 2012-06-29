@@ -23,4 +23,17 @@ fetchRepo() {
    
 }
 
+rmRemote() {
+
+  if [ "$git_lcl_branch" = "" ] ; then 
+    echo "Unknown local branch name." 
+    return; 
+  fi 
+
+  cd $project_dir 
+  git push origin :$git_lcl_branch
+
+}
+
+
 

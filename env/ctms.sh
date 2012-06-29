@@ -25,4 +25,4 @@ ctms_doc_base=$project_dir/app
 git_repo="git@github.com:mdsol/ctms.git" 
 git_src_branch="release/2012.1.0"
 # set this to rename local branch 
-git_lcl_branch=""
+git_lcl_branch="feature/$USER"

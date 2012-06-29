@@ -14,5 +14,9 @@ alias tcup=startTomcat
 alias tcdn=stopTomcat 
 alias tclg=viewTomcatLog 
 
+# --- CTMS 
+
+alias sl=searchLog 
+
 # --- mysql 
 alias db="$mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -A" 
