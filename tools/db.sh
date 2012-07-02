@@ -63,11 +63,11 @@ loadSeedData() {
 # --- dump the database to the file specified
 dumpDb() {
 
-  if [ -z "$1" ] ; then
-    echo "You must specify the destination file"
-    return
+  bak="$1"
+  if [ -z "$bak" ] ; then
+    bak="$(date +"%Y%m%d%H%M%S")_${db}.sql"
   fi
 
-  $dump_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name > $1
+  $dump_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name > $bak
 
 }
