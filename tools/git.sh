@@ -12,6 +12,12 @@
 # --- Fetch repo and rename if local branch name set
 fetchRepo() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "fetchRepo"
+    echo "  Fetch repo and rename if local branch name set"
+    return
+  fi
+
   git clone -b $git_src_branch $git_repo $project_dir
 
   if [ -n "$git_lcl_branch" ] ; then
@@ -26,6 +32,12 @@ fetchRepo() {
 }
 
 rmRemote() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "rmRemote"
+    echo "  Remove a remote branch"
+    return
+  fi
 
   if [ -z "$git_lcl_branch" ] ; then
     error "Unknown local branch name"
