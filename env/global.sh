@@ -37,6 +37,10 @@ failure() {
   $echo -e "\033[1A\033[${off}C${fore_red}Failure${reset_color}"
 }
 
+highlight() {
+  $echo -e "${bold_on}$@${bold_off}"
+}
+
 # --- Display settings
 
 fore_black="\033[0;30m"
