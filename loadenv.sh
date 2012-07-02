@@ -33,7 +33,7 @@ if [ -n "$1" ] ; then
   echo "Loading environment settings: $1"
 
   if [ ! -e $forge/env/$1.sh ] ; then
-    echo "'$1.sh' does not exist in $forge/env."
+    echo "'$1.sh' does not exist in $forge/env/"
     return
   fi
 
