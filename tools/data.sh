@@ -14,7 +14,7 @@
 clearStudy() {
 
   if [ -z "$1" ] ; then
-    echo "No study specified."
+    error "No study specified"
     return
   fi
 
@@ -42,11 +42,13 @@ killOrphans() {
 setUserPass() {
 
   if [ -z "$1" ] ; then
-    echo "You must specify a user"
+    error "You must specify a user"
+    return
   fi
 
   if [ -z "$2" ] ; then
-    echo "You must specify a password"
+    error "You must specify a password"
+    return
   fi
 
   $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -e "update resource_def set user_pwd=upper(convert(sha('$2'), char)) where user_id='$1';"
@@ -64,7 +66,8 @@ getNextDbId() {
 addStudy() {
 
   if [ -z "$1" ] ; then
-    echo "You must supply a study name"
+    error "You must supply a study name"
+    return
   fi
 
   getNextDbId
@@ -76,7 +79,7 @@ addStudy() {
 addStudyAttribute() {
 
   if [ -z "$4" ] ; then
-    echo "You must specify the study, attribute group, attribute, value, and an optional dd_value."
+    error "You must specify the study, attribute group, attribute, value, and an optional dd_value."
     return
   fi
 

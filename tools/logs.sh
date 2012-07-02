@@ -12,12 +12,12 @@
 viewLog() {
 
   if [ -z "$1" ] ; then
-    echo "no log specified";
+    error "No log specified"
     return
   fi
 
   if [ ! -e $ctms_log_dir/ctms_${1}.log ] ; then
-    echo "$ctms_log_dir/ctms_${1}.log does not exist"
+    error "$ctms_log_dir/ctms_${1}.log does not exist"
     return
   fi
 
@@ -30,7 +30,7 @@ viewLog() {
 searchLog() {
 
   if [ -z "$1" ] ; then
-    echo "No search string specified"
+    error "No search string specified"
     return
   fi
 

@@ -13,7 +13,7 @@
 addRmiStudy() {
 
   if [ -z "$2" ] ; then
-    echo "You must specify a study name and remote connection reference."
+    error "You must specify a study name and remote connection reference."
     return
   fi
 
@@ -63,7 +63,7 @@ addRmiStudy() {
 addRemoteConnection() {
 
   if [ -z "$5" ] ; then
-    echo "You must specify a name, protocol, host, username and password."
+    error "You must specify a name, protocol, host, username and password."
     return
   fi
 

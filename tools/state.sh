@@ -13,35 +13,35 @@
 loadState() {
 
   if [ -z "$1" ] ; then
-
-    echo "you must specify a state name"
-
+    error "You must specify a state name"
+    return
   fi
 
   local state_dir=$forge/track/$project_name/states/$1
 
   if [ ! -d $state_dir ] ; then
-
-    echo "State $1 does not exist."
+    error "State $1 does not exist."
     return
-
   fi
 
   if [ -f $state_dir/db.sql && "$2" != "-nodb" ] ; then
-
-    echo "resetting dsatabase."
+    echo "Resetting dsatabase"
     $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name < $state_dir/db.sql
-
+    success
   fi
 
   if [ -f $forge/track/$project_name/statefiles.txt && "$2" != "-nofiles" ] ; then
 
     while read line ; do
 
-      echo "resetting $line"
-
+      echo "Resetting $line"
       mkdir -p $(dirname $forge/$line)
       cp $state_dir/$line $forge/$line
+      if [ $? -eq 0 ] ; then
+        success
+      else
+        failure
+      fi
 
     done < "$forge/track/$project_name/statefiles.txt"
 
@@ -53,9 +53,8 @@ loadState() {
 saveState() {
 
   if [ -z "$1" ] ; then
-
-    echo "you must specify a stateName"
-
+    error "you must specify a stateName"
+    return
   fi
 
   local state_dir=$forge/track/$project_name/states/$1
@@ -91,6 +90,11 @@ saveState() {
 
       mkdir -p $(dirname $state_dir/$line)
       cp $forge/$line $state_dir/$line
+      if [ $? -eq 0 ] ; then
+        success
+      else
+        failure
+      fi 
 
     done < "$forge/track/$project_name/statefiles.txt"
 
@@ -102,7 +106,8 @@ saveState() {
 addStateFile() {
 
   if [ -z "$1" ] ; then
-    echo "You must specify a file."
+    error "You must specify a file."
+    return
   fi
 
   echo "$1" > $forge/track/$project_name/statefiles.txt

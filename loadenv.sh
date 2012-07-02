@@ -12,16 +12,24 @@
 forge="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 tracking_dir=$forge/track
 
+set +e
+
 # Load our global settings
-echo 'Loading global environment'
+echo "Loading global environment"
 source $forge/env/global.sh
+success
 
 # Load our tools set
-echo 'Loading tool set'
+echo "Loading tool set"
 for tool in $forge/tools/*.sh ; do
 
-  echo " * $tool"
-  source $tool
+  echo $(basename $tool)
+  source "$tool"
+  if [ $? -eq 0 ] ; then
+    success
+  else
+    failure
+  fi
 
 done
 
@@ -33,9 +41,11 @@ if [ -n "$1" ] ; then
   echo "Loading environment settings: $1"
 
   if [ ! -e $forge/env/$1.sh ] ; then
-    echo "'$1.sh' does not exist in $forge/env/"
+    failure
+    error "'$1.sh' does not exist in $forge/env/"
     return
   fi
+  success
 
   source $forge/env/$1.sh
   initTracking

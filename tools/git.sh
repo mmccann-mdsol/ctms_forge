@@ -28,8 +28,8 @@ fetchRepo() {
 rmRemote() {
 
   if [ -z "$git_lcl_branch" ] ; then
-    echo "Unknown local branch name."
-    return;
+    error "Unknown local branch name"
+    return
   fi
 
   cwd=$(pwd)
