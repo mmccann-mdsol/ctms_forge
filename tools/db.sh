@@ -60,14 +60,15 @@ loadSeedData() {
   echo 'done.'
 }
 
-# --- dump the database to the file specified
+# --- dump the database to the file specified (or auto generate the name
+#     based on the current date and time)
 dumpDb() {
 
   bak="$1"
   if [ -z "$bak" ] ; then
-    bak="$(date +"%Y%m%d%H%M%S")_${db}.sql"
+    bak="$(date +"%Y%m%d%H%M%S")_${ctms_db_name}.sql"
   fi
 
-  $dump_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name > $bak
+  $dump_cmd -u$ctms_db_user -p$ctms_db_pass --databases $ctms_db_name > $bak
 
 }
