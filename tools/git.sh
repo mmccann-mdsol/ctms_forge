@@ -16,8 +16,10 @@ fetchRepo() {
 
   if [ -n "$git_lcl_branch" ] ; then
 
+    cwd=$(pwd)
     cd $project_dir
     git branch -m $git_src_branch $git_lcl_branch
+    cd $cwd
 
   fi
 
@@ -30,7 +32,9 @@ rmRemote() {
     return;
   fi
 
+  cwd=$(pwd)
   cd $project_dir
   git push origin :$git_lcl_branch
+  cd $cwd
 
 }
