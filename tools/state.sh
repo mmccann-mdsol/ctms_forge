@@ -20,21 +20,21 @@ loadState() {
 
   local state_dir=$forge/track/$project_name/states/$1
 
-  if [[ ! -d $state_dir ]] ; then
+  if [ ! -d $state_dir ] ; then
 
     echo "State $1 does not exist."
     return
 
   fi
 
-  if [[ -f $state_dir/db.sql && "$2" != "-nodb" ]] ; then
+  if [ -f $state_dir/db.sql && "$2" != "-nodb" ] ; then
 
     echo "resetting dsatabase."
     $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name < $state_dir/db.sql
 
   fi
 
-  if [[ -f $forge/track/$project_name/statefiles.txt && "$2" != "-nofiles" ]] ; then
+  if [ -f $forge/track/$project_name/statefiles.txt && "$2" != "-nofiles" ] ; then
 
     while read line ; do
 
