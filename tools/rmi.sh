@@ -12,7 +12,7 @@
 # --- Add an RMI study
 addRmiStudy() {
 
-  if [ "$2" = "" ] ; then
+  if [ -z "$2" ] ; then
     echo "You must specify a study name and remote connection reference."
     return
   fi
@@ -62,7 +62,7 @@ addRmiStudy() {
 # --- Add a remote connection reference
 addRemoteConnection() {
 
-  if [ "$5" = "" ] ; then
+  if [ -z "$5" ] ; then
     echo "You must specify a name, protocol, host, username and password."
     return
   fi
