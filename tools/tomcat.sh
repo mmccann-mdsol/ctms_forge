@@ -26,8 +26,8 @@ viewTomcatLog() {
 
 # --- Create Root XML config file for tomcat
 createRootXml() {
-    echo "building ROOT.xml "
-    echo "<?xml version='1.0' encoding='utf-8'?>"           >  $CATALINA_BASE/conf/Catalina/localhost/ROOT.xml
-    echo "     <Context docBase='$ctms_doc_base' path=''>"  >> $CATALINA_BASE/conf/Catalina/localhost/ROOT.xml
-    echo "</Context>"                                       >> $CATALINA_BASE/conf/Catalina/localhost/ROOT.xml
+  echo "building ROOT.xml "
+  echo "<?xml version='1.0' encoding='utf-8'?>"           >  $CATALINA_BASE/conf/Catalina/localhost/ROOT.xml
+  echo "     <Context docBase='$ctms_doc_base' path=''>"  >> $CATALINA_BASE/conf/Catalina/localhost/ROOT.xml
+  echo "</Context>"                                       >> $CATALINA_BASE/conf/Catalina/localhost/ROOT.xml
 }
