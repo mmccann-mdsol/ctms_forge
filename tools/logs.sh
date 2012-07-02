@@ -12,13 +12,13 @@
 viewLog() {
 
   if [ -z "$1" ] ; then
-     echo "no log specified";
-     return
+    echo "no log specified";
+    return
   fi
 
   if [ ! -e $ctms_log_dir/ctms_${1}.log ] ; then
-     echo "$ctms_log_dir/ctms_${1}.log does not exist"
-     return
+    echo "$ctms_log_dir/ctms_${1}.log does not exist"
+    return
   fi
 
   less "$ctms_log_dir/ctms_${1}.log"
@@ -37,7 +37,7 @@ searchLog() {
   tgt=$2
 
   if [ -z "$tgt" ] ; then
-     tgt=$ctms_log_dir*
+    tgt=$ctms_log_dir*
   else
     tgt=$ctms_log_dir/ctms_${tgt}.log
   fi

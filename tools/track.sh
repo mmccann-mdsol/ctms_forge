@@ -12,7 +12,7 @@
 initTracking() {
 
   if [ ! -d "$tracking_dir/$project_name" ] ; then
-     mkdir -p "$tracking_dir/$project_name/states"
+    mkdir -p "$tracking_dir/$project_name/states"
   fi
 
 }

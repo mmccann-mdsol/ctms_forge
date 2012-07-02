@@ -41,7 +41,7 @@ loadState() {
       echo "resetting $line"
 
       mkdir -p $(dirname $forge/$line)
-      cp  $state_dir/$line $forge/$line
+      cp $state_dir/$line $forge/$line
 
     done < "$forge/track/$project_name/statefiles.txt"
 
@@ -90,7 +90,7 @@ saveState() {
       echo "resetting $line"
 
       mkdir -p $(dirname $state_dir/$line)
-      cp  $forge/$line $state_dir/$line
+      cp $forge/$line $state_dir/$line
 
     done < "$forge/track/$project_name/statefiles.txt"
 

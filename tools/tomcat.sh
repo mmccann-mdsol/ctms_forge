@@ -16,7 +16,7 @@ startTomcat() {
 
 # --- Stop Tomcat
 stopTomcat() {
-   $CATALINA_HOME/bin/catalina.sh stop
+  $CATALINA_HOME/bin/catalina.sh stop
 }
 
 # --- View Tomcat Logs

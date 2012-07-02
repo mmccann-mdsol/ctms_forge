@@ -25,16 +25,16 @@ clearStudy() {
 # --- Set a study attribute to a specific value
 setStudyAttribute() {
 
-   true
-   ## TO-DO
+  true
+  ## TO-DO
 
 }
 
 # --- Removes all orphaned records from the database
 killOrphans() {
 
-   true
-   ## TO-DO
+  true
+  ## TO-DO
 
 }
 
