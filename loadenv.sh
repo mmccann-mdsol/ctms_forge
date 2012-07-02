@@ -20,7 +20,7 @@ source $forge/env/global.sh
 success
 
 # Load our tools set
-echo "Loading tool set"
+echo "Loading tool set:"
 for tool in $forge/tools/*.sh ; do
 
   echo $(basename $tool)
