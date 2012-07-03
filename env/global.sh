@@ -48,7 +48,7 @@ highlight() {
   t=( $@ )
   $echo -en "${bold_on}${t[0]}${bold_off}"
   for x in ${t[@]} ; do
-    [ "$x" != ${t[0]} ] && $echo -en " ${fore_cyan}$x${reset_color}"
+    [ "$x" != ${t[0]} ] && $echo -en " ${fore_cyan}$x${reset_colour}"
   done
   $echo
 }
@@ -82,4 +82,4 @@ underline_off="\033[0;24m"
 invert_on="\033[0;7m"
 invert_off="\033[0;27m"
 
-reset_color="\033[0;0m"
+reset_colour="\033[0;0m"
