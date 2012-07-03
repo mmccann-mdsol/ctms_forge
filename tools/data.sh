@@ -154,3 +154,58 @@ addStudyAttribute() {
 							      (select id from drugtrial_def where name='$1'),
 							      '$4', '$5')";
 }
+
+
+addSite() { 
+
+  if [ -z "$2" ] ; then 
+    error "You must specify a study and a site. " 
+  fi 
+  
+  getNextDbId 
+  runSql "insert into site_def (ID, NAME, DRUGTRIAL_ID) VALUES ( 
+				$nextDbId, 
+				'$2', 
+				(select ID from drugtrial_def where NAME='$1'))" 
+
+  getNextDbId 
+  runSql "insert into address_def (ID) VALUES (
+				$nextDbId )" 
+  addressId=$nextDbId 
+  getNextDbId 
+  runSql "insert into site_address (ID, ADDRESS_ID, SITE_ID, IDENTIFIER, SUBJECT_LOCATION) VALUES (
+				$nextDbId, 
+				$addressId, 
+				(select ID from site_def where NAME='$2'), 
+				'$2', 
+				'Y')"
+
+}
+
+
+addSubject() { 
+
+  if [ -z "$2" ] ; then 
+    error "You must specify a site and subject to add" 
+  fi 
+
+  getNextDbId 
+  runSql "insert into subject_def (ID, SCREENING_NO, LOCATION_ID) VALUES ( 
+				  $nextDbId, 
+				  '$2',
+				  (select id from site_address where IDENTIFIER='$1'))" 
+}
+
+addSubjectCrf() { 
+
+  if [ -z "$2" ] ; then 
+    error "You must specify a subject and a name" 
+  fi 
+
+  getNextDbId
+  runSql "insert into subject_crf (ID, NAME, SUBJECT_ID) VALUES ( 
+				$nextDbId, 
+				'$2', 
+				(select ID from subject_def where SCREENING_NO='$1'))"; 
+}
+
