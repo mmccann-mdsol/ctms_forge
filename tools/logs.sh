@@ -11,6 +11,12 @@
 # --- view a specified log
 viewLog() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "viewLog <log file>"
+    echo "  View the given log file"
+    return
+  fi
+
   if [ -z "$1" ] ; then
     error "No log specified"
     return
@@ -28,6 +34,12 @@ viewLog() {
 # --- search for a string. If a second parameter is specified, it will search that specifi file
 #     otherwise it will search all log files.
 searchLog() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "searchLog <search expression> <log file>"
+    echo "  Search through the given log file for the given expression"
+    return
+  fi
 
   if [ -z "$1" ] ; then
     error "No search string specified"
