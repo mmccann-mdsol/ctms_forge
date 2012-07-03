@@ -34,22 +34,19 @@ fetchRepo() {
 rmRemote() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "rmRemote"
-    echo "  Remove a remote branch"
+    highlight "rmRemote [optional branch name]"
+    echo "  Remove remotely either the given branch or the current local branch"
     return
   fi
 
-#  Just because we don't have the branch locally doesn't mean it doesn't
-#  exist remotely
-#
-#  if [ -z "$git_lcl_branch" ] ; then
-#    error "Unknown local branch name"
-#    return
-#  fi
+  b=git_lcl_branch
+  if [ -n $1 ] ; then
+    b=$1
+  fi
 
   cwd=$(pwd)
   cd $project_dir
-  git push origin :$git_lcl_branch
+  git push origin :$b
   cd $cwd
 
 }
@@ -69,6 +66,7 @@ changeBranch() {
 
   cwd=$(pwd)
   cd $project_dir
+  git stash
   git checkout $1
   cd $cwd
   git_lcl_branch=$1
