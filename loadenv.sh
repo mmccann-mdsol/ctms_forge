@@ -13,6 +13,7 @@ forge="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 tracking_dir=$forge/track
 
 set +e
+funcs=""
 
 # Load our global settings
 echo "Loading global environment"
@@ -26,6 +27,7 @@ for tool in $forge/tools/*.sh ; do
   echo $(basename $tool)": "
   source "$tool"
   if [ $? -eq 0 ] ; then
+    funcs=$(grep -h '^.*() {$' tools/*.sh | sed 's/^\(.*\)() {$/\1/')
     success
   else
     failure
