@@ -4,8 +4,10 @@
 # ---------------------------------------------------------------------------
 
 # --- Tomcat settings
-CATALINA_HOME=/usr/share/tomcat7; export CATALINA_HOME
-CATALINA_BASE=$forge/tcbase; export CATALINA_BASE
+if [ -z $CATALINA_HOME ] ; then
+  export CATALINA_HOME=/usr/share/tomcat7
+fi
+export CATALINA_BASE=$forge/tcbase
 ctms_doc_base=$project_dir/app
 
 # --- Mysql settings
