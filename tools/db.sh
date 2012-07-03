@@ -117,7 +117,7 @@ loadSeedData() {
 dumpDb() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "dumpDb [optional file]"
+    highlight "dumpDb [optional file name]"
     echo "  Create a backup of the database $ctms_db_name and save it either in"
     echo "  the given file or a file based on todays date"
     return
