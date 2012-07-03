@@ -24,9 +24,13 @@ mysql_root_pass=root
 
 # --- Top level help function
 showHelp() {
-  for f in $funcs ; do
-    $f --help
-  done
+  if [ -n $1 ] ; then
+    $1 --help
+  else
+    for f in $funcs ; do
+      $f --help
+    done
+  fi
 }
 
 # --- Display functions
