@@ -15,6 +15,8 @@ ctms_db_pass=$project_name
 schema_file=$project_dir/DBSchema/DDL/cforce-schema.mysql.sql
 seed_data_file=$project_dir/DBSchema/Source/seed_data.sql
 
+bootstrap="${project_dir}/app/WEB-INF/config/bootstrap.properties"
+
 # --- Tomcat settings
 
 # Set this if you want to use a different base folder.
