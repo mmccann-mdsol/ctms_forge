@@ -12,7 +12,7 @@
 # --- Add an RMI study
 addRmiStudy() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "addRmiStudy <study name> <remote connection reference>"
     echo "  Add a new study with RMI"
     return
@@ -67,7 +67,7 @@ addRmiStudy() {
 # --- Add a remote connection reference
 addRemoteConnection() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "addRemoteConnection <reference> <protocol> <host name> <user name> <password>"
     echo "  Add and configure a new remote connection for RMI"
     return

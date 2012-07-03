@@ -11,7 +11,7 @@
 # --- Initialise tracking setup
 initTracking() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "initTracking"
     echo "  Initialise state tracking"
     return

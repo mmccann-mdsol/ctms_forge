@@ -12,7 +12,7 @@
 # --- Fetch repo and rename if local branch name set
 fetchRepo() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "fetchRepo"
     echo "  Fetch repo and rename if local branch name set"
     return
@@ -33,15 +33,15 @@ fetchRepo() {
 
 rmRemote() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "rmRemote [optional branch name]"
     echo "  Remove remotely either the given branch or the current local branch"
     return
   fi
 
   b=git_lcl_branch
-  if [ -n $1 ] ; then
-    b=$1
+  if [ -n "$1" ] ; then
+    b="$1"
   fi
 
   cwd=$(pwd)
@@ -53,13 +53,13 @@ rmRemote() {
 
 changeBranch() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "changeBranch <new branch name>"
     echo "  Switch to a different working branch"
     return
   fi
 
-  if [ -z $1 ] ; then
+  if [ -z "$1" ] ; then
     error "Missing branch name"
     return
   fi
@@ -67,8 +67,8 @@ changeBranch() {
   cwd=$(pwd)
   cd $project_dir
   git stash
-  git checkout $1
+  git checkout "$1"
   cd $cwd
-  git_lcl_branch=$1
+  git_lcl_branch="$1"
 
 }

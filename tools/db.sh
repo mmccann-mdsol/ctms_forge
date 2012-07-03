@@ -11,7 +11,7 @@
 # --- start mysqld
 startDatabase() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "startDatabase"
     echo "  Starts an instance of MySQL database daemon"
     return
@@ -32,7 +32,7 @@ startDatabase() {
 # --- stop mysqld
 stopDatabase() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "stopDatabase"
     echo "  Stops a running instance of MySQL daemon"
     return
@@ -51,7 +51,7 @@ stopDatabase() {
 # --- create the database set in the environment ---
 createDatabase() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "createDatabase"
     echo "  Will create a new database called $ctms_db_name and give necessary"
     echo "  permissions to $ctms_db_user"
@@ -69,7 +69,7 @@ createDatabase() {
 # --- drop a database
 dropDatabase() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "dropDatabase"
     echo "  Will drop the existing database $ctms_db_name"
     return
@@ -85,7 +85,7 @@ dropDatabase() {
 # --- Load the database schema
 loadSchema() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "loadSchema"
     echo "  Load the schema $schema_file into the database"
     return
@@ -100,7 +100,7 @@ loadSchema() {
 # --- Load the seeddata file
 loadSeedData() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "loadSeedData"
     echo "  Load necessary seed data from $seed_data_file into the database"
     return
@@ -116,7 +116,7 @@ loadSeedData() {
 #     based on the current date and time)
 dumpDb() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "dumpDb [optional file name]"
     echo "  Create a backup of the database $ctms_db_name and save it either in"
     echo "  the given file or a file based on todays date"
@@ -133,7 +133,7 @@ dumpDb() {
 
 runSql() { 
 
-  if [ $1=  "-h" -o $1 = "--help" ] ; then
+  if [ "$1"=  "-h" -o "$1" = "--help" ] ; then
     highlight "runSql <command>"
     echo "  Run the given SQL command"
     return

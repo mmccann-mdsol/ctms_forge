@@ -12,7 +12,7 @@
 #     Loads a previously saved state back into the environment
 loadState() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "loadState <state name>"
     echo "  Restore a previously saved state"
     return
@@ -23,7 +23,7 @@ loadState() {
     return
   fi
 
-  local state_dir=$forge/track/$project_name/states/$1
+  local state_dir="$forge/track/$project_name/states/$1"
 
   if [ ! -d $state_dir ] ; then
     error "State $1 does not exist."
@@ -58,7 +58,7 @@ loadState() {
 # --- save current state
 saveState() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "saveState <state name>"
     echo "  Save the complete state of the current environment"
     return
@@ -69,7 +69,7 @@ saveState() {
     return
   fi
 
-  local state_dir=$forge/track/$project_name/states/$1
+  local state_dir="$forge/track/$project_name/states/$1"
   if [ -d $state_dir ] ; then
 
     read -p "State already exists - do you want to overwrite?" -n 1 -r
@@ -117,7 +117,7 @@ saveState() {
 # --- Add a file to the list of those to save the state of
 addStateFile() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "addStateFile <file>"
     echo "  Add a new file to have its state saved"
     return
@@ -135,13 +135,13 @@ addStateFile() {
 # --- Remove a file from the state
 remStateFile() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "remStateFile <file>"
     echo "  Remove the given file from state control"
     return
   fi
 
-  x=$(grep -v $1)
+  x="$(grep -v $1)"
   echo -e "$x" > $forge/track/$project_name/statefiles.txt
 
 }

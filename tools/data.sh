@@ -13,7 +13,7 @@
 # --- Clears all data associated with a study
 clearStudy() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "clearStudy <study>"
     echo "  Clear all data associated with a study"
     return
@@ -31,7 +31,7 @@ clearStudy() {
 # --- Deletes a study
 deleteStudy() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "deleteStudy <study>"
     echo "  Delete a study"
     return
@@ -49,7 +49,7 @@ deleteStudy() {
 # --- Set a study attribute to a specific value
 setStudyAttribute() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "setStudyAttribute"
     echo "  Set a study attribute to a specific value"
     return
@@ -63,7 +63,7 @@ setStudyAttribute() {
 # --- Removes all orphaned records from the database
 killOrphans() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "killOrphans"
     echo "  Removes all orphaned records from the database"
     return
@@ -77,7 +77,7 @@ killOrphans() {
 # --- Set a password for a user
 setUserPass() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "setUserPass <username> <password>"
     echo "  Set a password for a user"
     return
@@ -100,7 +100,7 @@ setUserPass() {
 # --- Get next db Id
 getNextDbId() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "getNextDbId"
     echo "  Get next DB ID"
     return
@@ -114,7 +114,7 @@ getNextDbId() {
 # --- Create a Study
 addStudy() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "addStudy <study>"
     echo "  Create a study"
     return
@@ -133,7 +133,7 @@ addStudy() {
 
 addStudyAttribute() {
 
-  if [ $1 = "-h" -o $1 = "--help" ] ; then
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
     highlight "addStudyAttribute <study> <attribute group> <attribute template> <attribute name> <attribute value>"
     echo "  Add new study attribute"
     return
