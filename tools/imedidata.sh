@@ -1,9 +1,9 @@
 # ---------------------------------------------------------------------------
-# onfig.sh, General CTMS configuration functions
+# imedidata.sh, iMedidata related tools
 # CTMS Development Toolset
 # ---------------------------------------------------------------------------
 #
-# Provides functions for working with CTMS configuration.
+# Provides functions for working with iMedidata
 #
 # WARNING: These tools are intended as development aids and should not be
 #          used in a production environment.
