@@ -22,7 +22,7 @@ clearStudy() {
 
 }
 
-# --- Deletes a study 
+# --- Deletes a study
 deleteStudy() {
 
   if [ -z "$1" ] ; then
