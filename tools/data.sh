@@ -14,7 +14,7 @@
 clearStudy() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "clearStudy"
+    highlight "clearStudy <study>"
     echo "  Clear all data associated with a study"
     return
   fi
@@ -32,7 +32,7 @@ clearStudy() {
 deleteStudy() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "deleteStudy"
+    highlight "deleteStudy <study>"
     echo "  Delete a study"
     return
   fi
@@ -78,7 +78,7 @@ killOrphans() {
 setUserPass() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "setUserPass"
+    highlight "setUserPass <username> <password>"
     echo "  Set a password for a user"
     return
   fi
@@ -107,6 +107,7 @@ getNextDbId() {
   fi
 
   nextDbId=`$mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -A -e "update key_gen set current_id=current_id+1; select current_id from key_gen;" | grep '[0-9]'`
+  echo $nextDbId
 
 }
 
@@ -114,7 +115,7 @@ getNextDbId() {
 addStudy() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "addStudy"
+    highlight "addStudy <study>"
     echo "  Create a study"
     return
   fi
@@ -133,7 +134,7 @@ addStudy() {
 addStudyAttribute() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "addStudyAttribute"
+    highlight "addStudyAttribute <study> <attribute group> <attribute template> <attribute name> <attribute value>"
     echo "  Add new study attribute"
     return
   fi
