@@ -51,6 +51,22 @@ rmRemote() {
 
 }
 
+updateCode() {
+
+  if [ "$1" = "-h" -o "$1" = "--help" ] ; then
+    highlight "updateCode"
+    echo "  Update the corrent code base with the latest from Git"
+    return
+  fi
+
+  cwd=$(pwd)
+  cd $project_dir
+  git stash
+  git pull origin $git_lcl_branch
+  git stash pop
+  cd $cwd
+}
+
 changeBranch() {
 
   if [ "$1" = "-h" -o "$1" = "--help" ] ; then
