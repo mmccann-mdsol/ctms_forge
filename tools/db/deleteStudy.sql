@@ -63,6 +63,13 @@ delete from site_address where SITE_ID in
       where dd.name = @studyName
      );
 
+-- delete all site_contact entries 
+delete from site_contact where SITE_ID in 
+  (select std.ID from site_def std 
+		  join drugtrial_def dd on std.DRUGTRIAL_ID = dd.ID 
+    where dd.name = @studyName
+  ); 
+
 -- delete all site_def entries for a given study 
 delete from site_def where drugtrial_id in 
     (select dd.ID from drugtrial_def dd 

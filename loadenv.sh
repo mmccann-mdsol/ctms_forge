@@ -23,7 +23,7 @@ success
 echo "Loading tool set:"
 for tool in $forge/tools/*.sh ; do
 
-  echo $(basename $tool)
+  echo $(basename $tool)": "
   source "$tool"
   if [ $? -eq 0 ] ; then
     success
