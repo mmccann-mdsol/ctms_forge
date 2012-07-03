@@ -45,7 +45,12 @@ failure() {
 }
 
 highlight() {
-  $echo -e "${bold_on}$@${bold_off}"
+  t=( $@ )
+  $echo -en "${bold_on}${t[0]}${bold_off}"
+  for x in ${t[@]} ; do
+    [ "$x" != ${t[0]} ] && $echo -en " ${fore_cyan}$x${reset_color}"
+  done
+  $echo
 }
 
 # --- Display settings
