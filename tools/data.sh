@@ -18,7 +18,19 @@ clearStudy() {
     return
   fi
 
-  $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name - e "set @studyName='$1' ; source $forge/tools/db/clearStudy.sql"
+  $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -e "set @studyName='$1' ; source $forge/tools/db/clearStudy.sql;"
+
+}
+
+# --- Deletes a study 
+deleteStudy() {
+
+  if [ -z "$1" ] ; then
+    echo "No study specified."
+    return
+  fi
+
+  $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -e "set @studyName='$1' ; source $forge/tools/db/deleteStudy.sql;"
 
 }
 

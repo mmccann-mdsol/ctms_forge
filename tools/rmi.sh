@@ -17,44 +17,45 @@ addRmiStudy() {
     return
   fi
 
-  addStudy "$1"
+ addStudy "$1" 
 
-  addStudyAttribute "$1" "01ImpActivityCRFTmpl" "lastTransactionId" "-1"
+  addStudyAttribute "$1" "01ImpActivityCRFTmpl" "lastTransactionId" "-1" 
   addStudyAttribute "$1" "01ImpActivityCRFTmpl" "msgId"             "ImportRaveVisitCRFTemplates"
   addStudyAttribute "$1" "01ImpActivityCRFTmpl" "readOnlyEnabled"   "Y"
   addStudyAttribute "$1" "01ImpActivityCRFTmpl" "remoteConnectionReference"   "$2"
-  addStudyAttribute "$1" "01ImpActivityCRFTmpl" "uri"  "Rave Activity & CRF Templates WebServices" "/RaveWebServices/datasets/CtmsGetFoldersForms.csv?Study=$$!sFormat.urlEncode($$!jobData.drugtrialName)"
-  addStudyAttribute "$1" "01ImpActivityCRFTmpl" "visitReportButton" "Y"
+  addStudyAttribute "$1" "01ImpActivityCRFTmpl" "uri"  "Rave Activity & CRF Templates WebServices" "/RaveWebServices/datasets/CtmsGetFoldersForms.csv?Study=\$!sFormat.urlEncode(\$!jobData.drugtrialName)"
+  addStudyAttribute "$1" "01ImpActivityCRFTmpl" "visitReportButton" "Y" 
 
-  addStudyAttribute "$1" "02ImpSites" "lastTransactionId" "-1"
+  addStudyAttribute "$1" "02ImpSites" "lastTransactionId" "-1" 
   addStudyAttribute "$1" "02ImpSites" "msgId"             "ImportRaveSites"
   addStudyAttribute "$1" "02ImpSites" "readOnlyEnabled"   "Y"
   addStudyAttribute "$1" "02ImpSites" "remoteConnectionReference"   "$2"
-  addStudyAttribute "$1" "02ImpSites" "uri"  "Rave Sites WebService" "/RaveWebServices/datasets/CtmsGetSites.csv?study=$$!sFormat.urlEncode($$!jobData.drugtrialName)"
-  addStudyAttribute "$1" "02ImpSites" "visitReportButton" "Y"
+  addStudyAttribute "$1" "02ImpSites" "uri"  "Rave Sites WebService" "/RaveWebServices/datasets/CtmsGetSites.csv?study=\$!sFormat.urlEncode(\$!jobData.drugtrialName)"
+  addStudyAttribute "$1" "02ImpSites" "visitReportButton" "Y" 
 
-  addStudyAttribute "$1" "03ImpSiteContacts" "lastTransactionId" -"-1"
+  addStudyAttribute "$1" "03ImpSiteContacts" "lastTransactionId" -"-1" 
   addStudyAttribute "$1" "03ImpSiteContacts" "msgId"             "ImportRaveSitesContacts"
   addStudyAttribute "$1" "03ImpSiteContacts" "readOnlyEnabled"   "Y"
   addStudyAttribute "$1" "03ImpSiteContacts" "remoteConnectionReference"   "$2"
-  addStudyAttribute "$1" "03ImpSiteContacts" "uri"  "Rave Activity & CRF Templates WebServices" "/RaveWebServices/datasets/CtmsGetFoldersForms.csv?Study=$$!sFormat.urlEncode($$!jobData.drugtrialName)"
-  addStudyAttribute "$1" "03ImpSiteContacts" "visitReportButton" "Y"
+  addStudyAttribute "$1" "03ImpSiteContacts" "uri"  "Rave Site Contacts WebService" "/RaveWebServices/datasets/CtmsGetSitesContacts.csv?Study=\$!sFormat.urlEncode(\$!jobData.drugtrialName)"
+  addStudyAttribute "$1" "03ImpSiteContacts" "visitReportButton" "Y" 
 
-  addStudyAttribute "$1" "04ImpSubjects " "lastTransactionId" 0
+  addStudyAttribute "$1" "04ImpSubjects " "lastTransactionId" 0 
   addStudyAttribute "$1" "04ImpSubjects " "msgId"             "ImportRaveSubjects"
   addStudyAttribute "$1" "04ImpSubjects " "readOnlyEnabled"   "Y"
   addStudyAttribute "$1" "04ImpSubjects " "remoteConnectionReference"   "$2"
-  addStudyAttribute "$1" "04ImpSubjects " "uri"  "Rave Subject Data WebService" "/RaveWebServices/datasets/CTMSGetSubjectData.odm?study=$$!sFormat.urlEncode($$!jobData.drugtrialName)&startid=$$!jobData.lastTransactionId"
-  addStudyAttribute "$1" "04ImpSubjects " "visitReportButton" "Y"
+  addStudyAttribute "$1" "04ImpSubjects " "uri"  "Rave Subject Data WebService" "/RaveWebServices/datasets/CTMSGetSubjectData.odm?study=\$!sFormat.urlEncode(\$!jobData.drugtrialName)&startid=\$!jobData.lastTransactionId"
+  addStudyAttribute "$1" "04ImpSubjects " "visitReportButton" "Y" 
 
-  addStudyAttribute "$1" "05ImpMetrics" "lastTransactionId" 0
+  addStudyAttribute "$1" "05ImpMetrics" "lastTransactionId" 0 
   addStudyAttribute "$1" "05ImpMetrics" "isAuditPull"       "N"
   addStudyAttribute "$1" "05ImpMetrics" "auditIdAtStart"    "0"
   addStudyAttribute "$1" "05ImpMetrics" "msgId"             "ImportRaveMetrics"
   addStudyAttribute "$1" "05ImpMetrics" "readOnlyEnabled"   "Y"
   addStudyAttribute "$1" "05ImpMetrics" "remoteConnectionReference"   "$2"
-  addStudyAttribute "$1" "05ImpMetrics" "uri" "Rave Metrics WebService" "/RaveWebServices/datasets/ctmsgetsubjectMetrics.csv?study=$$!sFormat.urlEncode($$!jobData.drugtrialName)&startid=$$!jobData.lastTransactionId&isAuditPull=$$!jobData.isAuditPull"
-  addStudyAttribute "$1" "05ImpMetrics" "visitReportButton" "Y"
+  addStudyAttribute "$1" "05ImpMetrics" "uri" "Rave Metrics WebService" "/RaveWebServices/datasets/ctmsgetsubjectMetrics.csv?study=\$!sFormat.urlEncode(\$!jobData.drugtrialName)&startid=\$!jobData.lastTransactionId&isAuditPull=\$!jobData.isAuditPull" 
+  addStudyAttribute "$1" "05ImpMetrics" "visitReportButton" "Y" 
+
 
 
 }
