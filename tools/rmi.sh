@@ -12,12 +12,18 @@
 # --- Add an RMI study
 addRmiStudy() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "addRmiStudy <study name> <remote connection reference>"
+    echo "  Add a new study with RMI"
+    return
+  fi
+
   if [ -z "$2" ] ; then
     error "You must specify a study name and remote connection reference."
     return
   fi
 
- addStudy "$1"
+  addStudy "$1"
 
   addStudyAttribute "$1" "01ImpActivityCRFTmpl" "lastTransactionId" "-1"
   addStudyAttribute "$1" "01ImpActivityCRFTmpl" "msgId"             "ImportRaveVisitCRFTemplates"
@@ -56,12 +62,16 @@ addRmiStudy() {
   addStudyAttribute "$1" "05ImpMetrics" "uri" "Rave Metrics WebService" "/RaveWebServices/datasets/ctmsgetsubjectMetrics.csv?study=\$!sFormat.urlEncode(\$!jobData.drugtrialName)&startid=\$!jobData.lastTransactionId&isAuditPull=\$!jobData.isAuditPull"
   addStudyAttribute "$1" "05ImpMetrics" "visitReportButton" "Y"
 
-
-
 }
 
 # --- Add a remote connection reference
 addRemoteConnection() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "addRemoteConnection <connection reference> <protocol> <host name> <user name> <password>"
+    echo "  Add and configure a new remote connection for RMI"
+    return
+  fi
 
   if [ -z "$5" ] ; then
     error "You must specify a name, protocol, host, username and password."
