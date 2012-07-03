@@ -59,12 +59,20 @@ updateCode() {
     return
   fi
 
+  echo "Getting latest code"
   cwd=$(pwd)
   cd $project_dir
-  git stash
-  git pull origin $git_lcl_branch
-  git stash pop
+
+  # if there any changes locally, stash them; and unstash them later
+  chngs=$(git status --porcelain | wc -l)
+  [ "$chngs" -gt 0 ] && git stash
+
+  git fetch origin
+  git rebase $git_src_branch
+
+  [ "$chngs" -gt 0 ] && git stash pop
   cd $cwd
+  success
 }
 
 changeBranch() {
