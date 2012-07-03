@@ -22,6 +22,13 @@ else
 fi
 mysql_root_pass=root
 
+# --- Top level help function
+showHelp() {
+  for f in $funcs ; do
+    $f --help
+  done
+}
+
 # --- Display functions
 error() {
   $echo -e "${bold_on}${fore_red}ERROR: ${bold_off}${reset_color}$@"
