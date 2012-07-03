@@ -13,6 +13,12 @@
 # --- Clears all data associated with a study
 clearStudy() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "clearStudy"
+    echo "  Clear all data associated with a study"
+    return
+  fi
+
   if [ -z "$1" ] ; then
     error "No study specified"
     return
@@ -24,6 +30,12 @@ clearStudy() {
 
 # --- Deletes a study
 deleteStudy() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "deleteStudy"
+    echo "  Delete a study"
+    return
+  fi
 
   if [ -z "$1" ] ; then
     echo "No study specified."
@@ -37,6 +49,12 @@ deleteStudy() {
 # --- Set a study attribute to a specific value
 setStudyAttribute() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "setStudyAttribute"
+    echo "  Set a study attribute to a specific value"
+    return
+  fi
+
   true
   ## TO-DO
 
@@ -45,6 +63,12 @@ setStudyAttribute() {
 # --- Removes all orphaned records from the database
 killOrphans() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "killOrphans"
+    echo "  Removes all orphaned records from the database"
+    return
+  fi
+
   true
   ## TO-DO
 
@@ -52,6 +76,12 @@ killOrphans() {
 
 # --- Set a password for a user
 setUserPass() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "setUserPass"
+    echo "  Set a password for a user"
+    return
+  fi
 
   if [ -z "$1" ] ; then
     error "You must specify a user"
@@ -70,12 +100,24 @@ setUserPass() {
 # --- Get next db Id
 getNextDbId() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "getNextDbId"
+    echo "  Get next DB ID"
+    return
+  fi
+
   nextDbId=`$mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -A -e "update key_gen set current_id=current_id+1; select current_id from key_gen;" | grep '[0-9]'`
 
 }
 
 # --- Create a Study
 addStudy() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "addStudy"
+    echo "  Create a study"
+    return
+  fi
 
   if [ -z "$1" ] ; then
     error "You must supply a study name"
@@ -89,6 +131,12 @@ addStudy() {
 }
 
 addStudyAttribute() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "addStudyAttribute"
+    echo "  Add new study attribute"
+    return
+  fi
 
   if [ -z "$4" ] ; then
     error "You must specify the study, attribute group, attribute, value, and an optional dd_value."
