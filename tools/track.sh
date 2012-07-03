@@ -11,6 +11,12 @@
 # --- Initialise tracking setup
 initTracking() {
 
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "initTracking"
+    echo "  Initialise state tracking"
+    return
+  fi
+
   if [ ! -d "$tracking_dir/$project_name" ] ; then
     mkdir -p "$tracking_dir/$project_name/states"
   fi
