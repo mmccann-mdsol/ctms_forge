@@ -18,7 +18,10 @@ disableImedidata() {
     return
   fi
 
-  res="$(sed 's/^##authenticationRule=1$/authenticationRule=1/;s/^authenticationRule=3$/##authenticationRule=3/;s/^##authenticatorClass= uhuru.bizx.security.SVSimple$/authenticatorClass= uhuru.bizx.security.SVSimple/;s/^authenticatorClass= uhuru.bizx.security.SVCas$/##authenticatorClass= uhuru.bizx.security.SVCas/' <$bootstrap)"
+  res="$(sed 's/^##authenticationRule=1$/authenticationRule=1/
+              s/^authenticationRule=3$/##authenticationRule=3/
+              s/^##authenticatorClass= uhuru.bizx.security.SVSimple$/authenticatorClass= uhuru.bizx.security.SVSimple/
+              s/^authenticatorClass= uhuru.bizx.security.SVCas$/##authenticatorClass= uhuru.bizx.security.SVCas/' <$bootstrap)"
   echo "$res" >$bootstrap
 
 }
@@ -32,7 +35,10 @@ enableImedidata() {
     return
   fi
 
-  res="$(sed 's/^authenticationRule=1$/##authenticationRule=1/;s/^##authenticationRule=3$/authenticationRule=3/;s/^authenticatorClass= uhuru.bizx.security.SVSimple$/##authenticatorClass= uhuru.bizx.security.SVSimple/;s/^##authenticatorClass= uhuru.bizx.security.SVCas$/authenticatorClass= uhuru.bizx.security.SVCas/' <$bootstrap)"
+  res="$(sed 's/^authenticationRule=1$/##authenticationRule=1/
+              s/^##authenticationRule=3$/authenticationRule=3/
+              s/^authenticatorClass= uhuru.bizx.security.SVSimple$/##authenticatorClass= uhuru.bizx.security.SVSimple/
+              s/^##authenticatorClass= uhuru.bizx.security.SVCas$/authenticatorClass= uhuru.bizx.security.SVCas/' <$bootstrap)"
   echo "$res" >$bootstrap
 
 }
