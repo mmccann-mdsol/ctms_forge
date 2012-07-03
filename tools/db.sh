@@ -133,13 +133,17 @@ dumpDb() {
 
 runSql() { 
 
-  if [ "$1" = "" ] ; then 
+  if [ $1=  "-h" -o $1 = "--help" ] ; then
+    highlight "runSql <command>"
+    echo "  Run the given SQL command"
+    return
+  fi
 
-    echo "You must specify a sql command to run" 
-    return 
+  if [ -z "$1" ] ; then
+    error "You must specify a sql command to run"
+    return
+  fi
 
-  fi 
-
-  $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -e "$1" 
+  $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -e "$1"
 
 }
