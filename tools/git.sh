@@ -39,10 +39,13 @@ rmRemote() {
     return
   fi
 
-  if [ -z "$git_lcl_branch" ] ; then
-    error "Unknown local branch name"
-    return
-  fi
+#  Just because we don't have the branch locally doesn't mean it doesn't
+#  exist remotely
+#
+#  if [ -z "$git_lcl_branch" ] ; then
+#    error "Unknown local branch name"
+#    return
+#  fi
 
   cwd=$(pwd)
   cd $project_dir
