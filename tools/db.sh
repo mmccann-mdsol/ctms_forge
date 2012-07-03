@@ -130,3 +130,16 @@ dumpDb() {
   $dump_cmd -u$ctms_db_user -p$ctms_db_pass --databases $ctms_db_name > $bak
 
 }
+
+runSql() { 
+
+  if [ "$1" = "" ] ; then 
+
+    echo "You must specify a sql command to run" 
+    return 
+
+  fi 
+
+  $mysql_cmd -u$ctms_db_user -p$ctms_db_pass $ctms_db_name -e "$1" 
+
+}
