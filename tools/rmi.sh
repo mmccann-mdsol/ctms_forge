@@ -68,7 +68,7 @@ addRmiStudy() {
 addRemoteConnection() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "addRemoteConnection <connection reference> <protocol> <host name> <user name> <password>"
+    highlight "addRemoteConnection <reference> <protocol> <host name> <user name> <password>"
     echo "  Add and configure a new remote connection for RMI"
     return
   fi
