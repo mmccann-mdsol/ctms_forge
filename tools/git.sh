@@ -53,3 +53,23 @@ rmRemote() {
   cd $cwd
 
 }
+
+changeBranch() {
+
+  if [ $1 = "-h" -o $1 = "--help" ] ; then
+    highlight "changeBranch"
+    echo "  Switch to a different working branch"
+    return
+  fi
+
+  if [ -z $1 ] ; then
+    error "Missing branch name"
+    return
+  fi
+
+  cwd=$(pwd)
+  cd $project_dir
+  git checkout $1
+  cd $cwd
+
+}
