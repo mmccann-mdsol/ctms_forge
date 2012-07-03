@@ -57,7 +57,7 @@ rmRemote() {
 changeBranch() {
 
   if [ $1 = "-h" -o $1 = "--help" ] ; then
-    highlight "changeBranch"
+    highlight "changeBranch <new branch name>"
     echo "  Switch to a different working branch"
     return
   fi
@@ -71,5 +71,6 @@ changeBranch() {
   cd $project_dir
   git checkout $1
   cd $cwd
+  git_lcl_branch=$1
 
 }
