@@ -27,7 +27,7 @@ for tool in $forge/tools/*.sh ; do
   echo $(basename $tool)": "
   source "$tool"
   if [ $? -eq 0 ] ; then
-    funcs=$(grep -h '^.*() {$' tools/*.sh | sed 's/^\(.*\)() {$/\1/')
+    funcs=$(grep -h '^.*() {$' $forge/tools/*.sh | sed 's/^\(.*\)() {$/\1/')
     success
   else
     failure
