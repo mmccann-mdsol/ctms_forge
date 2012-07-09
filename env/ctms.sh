@@ -25,6 +25,6 @@ ctms_doc_base=$project_dir/app
 
 # --- Git settings
 git_repo="git@github.com:mdsol/ctms.git"
-git_src_branch="release/2012.1.0"
+git_src_branch="develop"
 # set this to rename local branch
 git_lcl_branch="feature/$USER"
