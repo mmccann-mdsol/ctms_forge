@@ -8,9 +8,13 @@
 #          used in a production environment.
 # ---------------------------------------------------------------------------
 
+
+
 # We use the directory this file is stored in the reference our base folder
 forge="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 tracking_dir=$forge/track
+
+source env/display.sh 
 
 set +e
 funcs=""
