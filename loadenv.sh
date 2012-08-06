@@ -57,14 +57,3 @@ if [ -n "$1" ] ; then
   initTracking
 
 fi
-
-# --- Top level help function
-showHelp() {
-  if [ -n $1 ] ; then
-    $1 --help
-  else
-    for f in $funcs ; do
-      $f --help
-    done
-  fi
-}
