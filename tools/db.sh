@@ -31,7 +31,7 @@ createDatabase() {
   echo "Creating Database $ctms_db_name:"
 
   $mysql_cmd -uroot -p$mysql_root_pass -e "create database $ctms_db_name";
-  $mysql_cmd -uroot -p$mysql_root_pass -e "grant ALL on ${ctms_db_name}.* to '$ctms_db_user' identified by '$ctms_db_pass'"
+  $mysql_cmd -uroot -p$mysql_root_pass -e "grant ALL on ${ctms_db_name}.* to '$ctms_db_user'@'localhost' identified by '$ctms_db_pass'"
 
 }
 
