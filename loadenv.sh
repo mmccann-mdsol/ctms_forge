@@ -41,3 +41,7 @@ if [ -n "$1" ] ; then
   initTracking
 
 fi
+
+echo 'Creating aliases' 
+source $forge/env/aliases.sh 
+
